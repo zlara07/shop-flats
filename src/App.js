@@ -1,25 +1,68 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { data } from "./data";
 import './App.css';
 
 function App() {
+
+  const [flat, setFlat] = useState(0);
+  const {id, apartment, description, image, adress, price} = data[flat];
+  
+
+  const previousFlat = () => {
+    setFlat((flat => {
+      flat --;
+      if (flat < 0) {
+        return data.length - 1;
+      }
+      return flat;
+    }))
+  }
+
+  const nextFlat = () => {
+    setFlat((flat => {
+      flat ++;
+      if (flat > data.length - 1) {
+        flat = 0;
+      }
+      return flat;
+    }))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <div className='container'>
+        <h1>Магазин квартир:</h1>
+
+      </div>
+      <div className='container'>
+        <img src={image} width="300px" alt="flat"/>
+      </div>
+      
+      <div className='container'>
+        <h2>{id}.  {apartment}</h2>
+      </div>
+
+      <div className='container'>
+        <h3>{description}</h3>
+      </div>
+      
+      <div className='container'>
+        <h2>{adress}</h2>
+      </div>
+
+      <div className='container'>
+        <h2>{price}</h2>
+      </div>
+      
+      <div className=' container'>
+        <button className='btn' onClick={previousFlat}>НАЗАД</button>
+        <button className='btn'  onClick={nextFlat}>ВПЕРЕД</button>
+      </div>
+      
     </div>
   );
 }
 
 export default App;
+

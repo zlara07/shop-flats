@@ -25,9 +25,12 @@ h1 {
   .btn {
   
     display: flex;
-    justify-content: space-between;
-    border: 1px solid transparent;
-    letter-spacing: 2px;
+    justify-content: space-evenly; 
+  }    
+   
+  button {
+      
+    border: none;
     text-transform: uppercase;
     color: #fff;
     background-color: #0071c2;

@@ -55,9 +55,9 @@ function App() {
         <h2>{price}</h2>
       </div>
       
-      <div className=' container'>
-        <button className='btn' onClick={previousFlat}>НАЗАД</button>
-        <button className='btn'  onClick={nextFlat}>ВПЕРЕД</button>
+      <div className='btn container'>
+        <button onClick={previousFlat}>НАЗАД</button>
+        <button onClick={nextFlat}>ВПЕРЕД</button>
       </div>
       
     </div>
